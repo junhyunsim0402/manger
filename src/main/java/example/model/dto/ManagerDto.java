@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class ManagerDto {
     String emp_code;
     String emp_name;
+    String dept_key;
     String dept_name;
     String position;
 }
+
