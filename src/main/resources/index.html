@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="header-top">
+                <h1>인사 관리 대시보드</h1>
+            </div>
+            <div class="header-content">
+                부서, 사원, 휴가 통합 관리 시스템
+            </div>
+        </div>
+        <div id="main">
+            <div class="left-sidebar">
+                <h3>부서 관리</h3>
+                <div class="부서관리추가">
+                    <input class="left-category" type="text" placeholder="신규 부서명 입력">
+                    <button onclick="categoryAdd()">추가</button>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>부서명</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-left">
+                        <tr>
+                            <td>개발팀</td>
+                            <td>
+                                <button class="updateBtn" onclick="">수정</button>
+                                <button class="deleteBtn" onclick="">삭제</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>디자인팀</td>
+                            <td>
+                                <button class="updateBtn" onclick="">수정</button>
+                                <button class="deleteBtn" onclick="">삭제</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>기획팀</td>
+                            <td>
+                                <button class="updateBtn" onclick="">수정</button>
+                                <button class="deleteBtn" onclick="">삭제</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="center-sidebar">
+                <div class="top-content">
+                    <h3>사원 등록</h3>
+                    <div class="input-group">
+                        <div class="input-top">
+                            <div>
+                                이름<br />
+                                <input type="text" class="name" />
+                            </div>
+                            <div>
+                                직급<br />
+                                <input type="text" class="rank" />
+                            </div>
+                        </div>
+                        <div class="input-bottom">
+                            <div>
+                                부서<br />
+                                <select class="category">
+                                    <option value="disabled">부서를 선택하세요</option>
+                                    <option value="1">개발팀</option>
+                                    <option value="2">디자인팀</option>
+                                    <option value="3">기획팀</option>
+                                </select>
+                            </div>
+                            <div class="image-right">
+                                사진<br />
+                                <input type="file" class="image" />
+                            </div>
+                        </div>
+                        <button class="update-button" onclick="memberAdd()">등록</button>
+                    </div>
+                    <div class="bottom-content">
+                        <h3>사원 전체 목록</h3>
+                        <table id="table">
+                            <thead>
+                                <tr>
+                                    <th>이름</th>
+                                    <th>부서</th>
+                                    <th>직급</th>
+                                    <th>관리</th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody">
+                                <tr>
+                                    <td>김민준</td>
+                                    <td>개발팀</td>
+                                    <td>선임 개발자</td>
+                                    <td>
+                                        <button class="updateBtn" onclick="">수정</button>
+                                        <button class="deleteBtn" onclick="">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>김민준</td>
+                                    <td>디자인팀</td>
+                                    <td>선임 개발자</td>
+                                    <td>
+                                        <button class="updateBtn" onclick="">수정</button>
+                                        <button class="deleteBtn" onclick="">삭제</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>김민준</td>
+                                    <td>기획팀</td>
+                                    <td>선임 개발자</td>
+                                    <td>
+                                        <button class="updateBtn" onclick="">수정</button>
+                                        <button class="deleteBtn" onclick="">삭제</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="right-sidebar">
+                <div class="right-sidebar-top">
+                    <h3>사원 휴가 신청</h3>
+                    <div>
+                        신청 사원<br />
+                        <select class="inputdept">
+                            <option value="disabled">휴가 신청 사원을 선택하세요</option>
+                            <option value="100">김민준</option>
+                            <option value="101">이서연</option>
+                            <option value="102">박도윤</option>
+                        </select>
+                    </div>
+                    <div class="inputdate">
+                        <div class="flex">
+                            <div class="start-date">
+                                휴가 시작일<br />
+                                <input type="date" class="startdate" />
+                            </div>
+                            <div class="end-date">
+                                휴가 종료일<br />
+                                <input type="date" class="enddate" />
+                            </div>
+                        </div>
+                        <div class="vacation">
+                            휴가 사유<br />
+                            <input class="width" type="text" placeholder="예: 여름 휴가">
+                        </div>
+                        <div class="right">
+                            <button class="application" onclick="vacationAdd()">신청</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-sidebar-bottom">
+                    <div class="all-list">
+                        <h3>휴가 신청 전체 목록</h3>
+                        <div class="list">
+                            <div class="top">
+                                <h4>김민준</h4>
+                                <button onclick="">신청취소</button>
+                            </div>
+                            <div class="center">
+                                2025-08-04 ~ 2025-08-04
+                            </div>
+                            <div class="bottom">
+                                사유: 병원 진료
+                            </div>
+                        </div>
+                        <div class="list">
+                            <div class="top">
+                                <h4>이서연</h4>
+                                <button onclick="">신청취소</button>
+                            </div>
+                            <div class="center">
+                                2025-07-21 ~ 2025-07-25
+                            </div>
+                            <div class="bottom">
+                                사유: 여름 휴가
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>   
+    <script src="index.js"></script>
+</body>
+</html>

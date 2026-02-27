@@ -1,0 +1,258 @@
+#wrap{
+    background-color: skyblue;
+    width: 1320px;
+}
+.left-sidebar,.center-sidebar,.right-sidebar{
+    background-color: white;
+    border-radius: 10px;
+    padding: 0 20px;
+}
+#header{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#header > .header-top{
+    padding-top: 20px;
+}
+.header-content{
+    padding-bottom: 20px;
+}
+#main{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px 10px 40px;
+}
+/*left-sidebar*/
+.left-sidebar{
+    width: 290px;
+    margin-right: 20px;
+}
+.left-sidebar > h3{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eeeeee;
+}
+.left-category {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    width: 160px;
+    margin-right: 5px;
+}
+.부서관리추가{
+    padding-bottom: 15px;
+    display: flex;
+}
+.부서관리추가 button {
+    padding: 10px 20px;
+    background-color: #8b3dff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+/*main*/
+.center-sidebar{
+    width: 580px;
+    margin-right: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    align-items: center;
+}
+
+.table thead tr {
+    background-color: #eeeeee;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.table th {
+    padding: 12px;
+    text-align: left;
+    color: #666;
+    font-size: 14px;
+}
+
+.table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    color: #333;
+}
+.table td, .table th{
+    text-align: center;
+}
+
+.updateBtn, .deleteBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.updateBtn {
+    color: #6c5ce7;
+}
+
+.deleteBtn {
+    color: #ff7675;
+}
+
+/*center-sidebar*/
+.top-content > h3, .bottom-content > h3{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.input-top, .input-bottom{
+    display: flex;
+}
+.input-bottom{
+    gap: 20px;
+}
+.name, .rank, .category{
+    width: 240px;
+    padding: 10px;
+    background-color: #eeeeee;  
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+.category{
+    width: 260px;
+}
+.name{
+    margin-right: 20px;
+}
+.input-group{
+    position: relative;
+    padding-bottom: 70px;
+}
+.update-button{
+    position: absolute;
+    top: 135px;
+    left: 490px;
+    background-color: blue;
+    color: white;
+    padding: 10px 0;
+    width: 50px;
+    border-radius: 5px;
+}
+/*right-sidebar*/
+.right-sidebar {
+    width: 290px;
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.right-sidebar h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.inputdept{
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #eeeeee;
+    box-sizing: border-box;
+}
+.startdate, .enddate {
+    border: 1px solid #ddd;
+    width: 100px; 
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #eeeeee;  
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+.vacation{
+    padding-bottom: 10px;
+}
+.width{
+    width: 100%;
+    padding: 10px;
+    background-color: #eeeeee;  
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+.application {
+    width: 100%;
+    padding: 12px;
+    background-color: #009688;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 5px;
+
+}
+.tbody img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.right{
+    padding-left: 180px;
+}
+.right-sidebar-bottom {
+    margin-top: 40px;
+    clear: both;
+}
+
+.list{
+    background-color: #f8faff;
+    border: 1px solid #e1e8f5;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.list .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.list h4{
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.list button{
+    background-color: #94a3b8;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.list .center{
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 5px;
+}
+
+.list .bottom {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
