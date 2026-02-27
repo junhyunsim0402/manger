@@ -14,7 +14,6 @@ CREATE TABLE Employee (
     emp_name VARCHAR(50) NOT NULL,
     dept_key INT,
     position VARCHAR(50),
-    emp_photo VARCHAR(100),
     FOREIGN KEY (dept_key) REFERENCES Department(dept_key)
 );
 

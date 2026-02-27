@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class VacationDto {
-    int mno;
-    String sdate;
-    String edate;
-    String reason;
+    int leave_code;
+    String start_date;
+    String end_date;
+    String leave_reason;
 
 
 }
