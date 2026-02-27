@@ -1,4 +1,4 @@
-package model.dao;
+package example.model.dao;
 
 public class CategoryDao {
 }

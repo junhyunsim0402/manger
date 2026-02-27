@@ -1,4 +1,4 @@
-package controller;
+package example.controller;
 
 
 public class ManagerController {
