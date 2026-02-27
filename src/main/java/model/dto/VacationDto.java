@@ -14,6 +14,6 @@ public class VacationDto {
     String sdate;
     String edate;
     String reason;
-    
+
 
 }
