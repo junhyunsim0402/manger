@@ -10,5 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class ManagerDto {
+    String mno;
+    String name;
+    String category;
+    String rank;
 
 }
