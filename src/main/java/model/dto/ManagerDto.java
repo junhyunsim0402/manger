@@ -14,5 +14,4 @@ public class ManagerDto {
     String name;
     String category;
     String rank;
-
 }
