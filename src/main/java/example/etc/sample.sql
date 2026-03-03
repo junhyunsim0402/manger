@@ -10,7 +10,7 @@ CREATE TABLE Department (
 
 -- 2. 사원 테이블
 CREATE TABLE Employee (
-    emp_code INT PRIMARY KEY,
+    emp_code INT PRIMARY KEY auto_increment,
     emp_name VARCHAR(50) NOT NULL,
     dept_key INT,
     position VARCHAR(50),
@@ -24,7 +24,7 @@ CREATE TABLE Employee_Leave (
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
     leave_reason VARCHAR(255),
-    FOREIGN KEY (emp_code) REFERENCES Employee(emp_code)
+    FOREIGN KEY (emp_code) REFERENCES Employee(emp_code) on delete cascade
 );
 
 INSERT INTO Department VALUES (1, '개발팀');

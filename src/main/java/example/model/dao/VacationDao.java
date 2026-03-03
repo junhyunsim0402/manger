@@ -17,7 +17,7 @@ public class VacationDao {
 
 
     String url = "jdbc:mysql://localhost:3306/CompanyDB";
-    String password="1234";
+    String password="simjunhyun1@";
     String user="root";
 
     private Connection conn;
