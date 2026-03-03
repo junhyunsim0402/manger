@@ -47,7 +47,7 @@ public class VacationDao {
 
             if (count==1){return true;}
         }catch (Exception e){
-            System.out.println("e = " + e);
+            System.out.println("e2222 = " + e);
         }
         return false;
 
