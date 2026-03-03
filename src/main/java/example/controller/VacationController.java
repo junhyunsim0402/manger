@@ -14,13 +14,13 @@ public class VacationController {
     private VacationDao vacationDao;
 
     // 휴가신청
-    @PostMapping("/dboard")
+    @PostMapping("/vacation")
     public boolean add(@RequestBody VacationDto vacationDto){
         boolean result = vacationDao.add(vacationDto);
         return result;
     }
     // 휴가취소
-    @DeleteMapping("/dboard")
+    @DeleteMapping("/vacation")
     public boolean delete(@RequestParam int leave_code){
         boolean result = vacationDao.delete(leave_code);
         return result;
@@ -28,10 +28,17 @@ public class VacationController {
 
 
     // 휴가조회
-    @GetMapping("/dboard")
+    @GetMapping("/vacation")
     public List<VacationDto>FindAll(){
         List<VacationDto>list = vacationDao.FindAll();
         return list;
+    }
+
+
+    // 사원 목록 조회
+    @GetMapping("/fmember")
+    public List<VacationDto>fmember(){
+        return vacationDao.fmember();
     }
 
 
