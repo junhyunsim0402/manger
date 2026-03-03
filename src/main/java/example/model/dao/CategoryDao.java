@@ -15,7 +15,7 @@ import java.util.List;
 public class CategoryDao {
     public CategoryDao(){connect();}
     private String url = "jdbc:mysql://localhost:3306/CompanyDB";
-    private String user = "root"; private String password = "simjunhyun1@";
+    private String user = "root"; private String password = "1234";
     // 2) 연동 인터페이스 변수 선언
     private Connection conn;
     // 3) 연동 함수 정의 , dao에 생성자에서 함수 실행 ( dao 싱글톤이 생성되면서 db연동 실행 )
@@ -49,10 +49,9 @@ public class CategoryDao {
     // [2] 부서 등록
     public boolean add(CategoryDto categoryDto){
         try{
-            String sql="insert into Department values (?,?)";
+            String sql="insert into Department(dept_name) values (?)";
             PreparedStatement ps=conn.prepareStatement(sql);
-            ps.setInt(1,categoryDto.getDept_key());
-            ps.setString(2,categoryDto.getDept_name());
+            ps.setString(1,categoryDto.getDept_name());
             int count=ps.executeUpdate();
             if(count==1)return true;
         }catch (Exception e){ System.out.println("등록오류"+e); }

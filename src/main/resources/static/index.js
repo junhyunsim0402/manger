@@ -18,7 +18,17 @@ const deptPrint = async () => {
 }
 deptPrint();
 const deptAdd = async () => {
-
+    const dept_name=document.querySelector(".left-category").value;
+    const obj={dept_name};
+    const response=await axios.post("/category",obj);
+    const data=response.data;
+    if(data==true){
+        alert("등록성공");
+        document.querySelector(".left-category").value="";
+        deptPrint();
+    }    else{
+        alert("등록실패 : 관리자에게 문의");
+    }
 }
 const deptUpdate = async () => {
 
