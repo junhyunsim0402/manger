@@ -33,4 +33,14 @@ public class VacationController {
         List<VacationDto>list = vacationDao.FindAll();
         return list;
     }
+
+
+    // 사원 목록 조회
+    @GetMapping("/fmember")
+    public List<VacationDto>fmember(){
+        return vacationDao.fmember();
+    }
+
+
+
 }

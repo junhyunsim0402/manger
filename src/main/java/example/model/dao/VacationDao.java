@@ -57,12 +57,13 @@ public class VacationDao {
     public List<VacationDto>FindAll(){
         List<VacationDto>list = new ArrayList<>();
         try{
-            String sql="select n.emp_name, e.start_date,e.end_date,e.leave_reason from Employee_Leave e inner join Employee n on e.emp_code=n.emp_code";
+            String sql="select e.leave_code, n.emp_name, e.start_date,e.end_date,e.leave_reason from Employee_Leave e inner join Employee n on e.emp_code=n.emp_code";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 VacationDto vacationDto = VacationDto
                         .builder()
+                        .leave_code(rs.getInt("leave_code"))
                         .emp_name(rs.getString("emp_name"))
                         .start_date(rs.getString("start_date"))
                         .end_date(rs.getString("end_date"))
@@ -90,6 +91,28 @@ public class VacationDao {
             e.printStackTrace();
         }
         return false;
+    }
+
+    // 사원 목록 조회
+    public List<VacationDto>fmember(){
+        List<VacationDto>list = new ArrayList<>();
+        try{
+            String sql ="select emp_name from Employee";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                VacationDto vacationDto = VacationDto
+                        .builder().emp_name(rs.getString("emp_name")).build();
+
+                list.add(vacationDto);
+
+            }
+        }catch (Exception e){
+            System.out.println("e = " + e);
+            e.printStackTrace();
+        }
+        return list;
+
     }
 
 
