@@ -15,7 +15,7 @@ import java.util.List;
 public class CategoryDao {
     public CategoryDao(){connect();}
     private String url = "jdbc:mysql://localhost:3306/CompanyDB";
-    private String user = "root"; private String password = "1234";
+    private String user = "root"; private String password = "simjunhyun1@";
     // 2) 연동 인터페이스 변수 선언
     private Connection conn;
     // 3) 연동 함수 정의 , dao에 생성자에서 함수 실행 ( dao 싱글톤이 생성되면서 db연동 실행 )

@@ -30,11 +30,24 @@ const deptAdd = async () => {
         alert("등록실패 : 관리자에게 문의");
     }
 }
-const deptUpdate = async () => {
-
+const deptUpdate = async (dept_key) => {
+    const dept_name=prompt("수정할 부서명");
+    const obj={dept_key,dept_name}
+    const response= await axios.put(`/category`,obj);
+    const data=response.data;
+    if(data==true){
+        alert("수정성공");
+        deptPrint();
+    }else{
+        alert("수정 실패 : 관리자에게 문의")
+    }
+    onFindAll();
 }
-const deptDelete = async () => {
-
+const deptDelete = async (dept_key) => {
+    const response = await axios.delete( `/category?dept_key=${ dept_key }` );
+    const data = response.data;
+    if( data == true ){ alert("삭제성공"); deptPrint(); onFindAll();}
+    else{ alert("삭제실패 : 관리자에게문의"); }
 }
 // 부서 관리 페이지 끝
 // 사원 등록 페이지 시작

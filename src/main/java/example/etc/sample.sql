@@ -4,7 +4,7 @@ USE CompanyDB;
 
 -- 1. 부서 테이블
 CREATE TABLE Department (
-    dept_key INT PRIMARY KEY,
+    dept_key INT PRIMARY KEY auto_increment,
     dept_name VARCHAR(50) NOT NULL
 );
 
@@ -14,7 +14,7 @@ CREATE TABLE Employee (
     emp_name VARCHAR(50) NOT NULL,
     dept_key INT,
     position VARCHAR(50),
-    FOREIGN KEY (dept_key) REFERENCES Department(dept_key)
+    FOREIGN KEY (dept_key) REFERENCES Department(dept_key) ON DELETE CASCADE
 );
 
 -- 3. 사원 휴가 테이블
