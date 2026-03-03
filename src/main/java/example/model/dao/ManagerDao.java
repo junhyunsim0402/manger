@@ -52,12 +52,11 @@ public class ManagerDao {
     // [2] 게시물등록
     public boolean add(ManagerDto managerDto){
         try{
-            String sql="INSERT INTO Employee(emp_code, emp_name, dept_key, position) VALUES(?, ?, ?, ?)";
-            PreparedStatement ps=conn.prepareStatement(sql);
-            ps.setInt(1, managerDto.getEmp_code());
-            ps.setString(2,managerDto.getEmp_name());
-            ps.setInt(3,managerDto.getDept_key());
-            ps.setString(4,managerDto.getPosition());
+            String sql = "INSERT INTO Employee(emp_name, dept_key, position) VALUES(?, ?, ?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, managerDto.getEmp_name());
+            ps.setInt(2, managerDto.getDept_key());
+            ps.setString(3, managerDto.getPosition());
             int count=ps.executeUpdate();
             if(count==1)return true;
         }catch (Exception e){ System.out.println("등록오류"+e); }

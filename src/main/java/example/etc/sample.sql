@@ -10,7 +10,7 @@ CREATE TABLE Department (
 
 -- 2. 사원 테이블
 CREATE TABLE Employee (
-    emp_code INT PRIMARY KEY,
+    emp_code INT PRIMARY KEY auto_increment,
     emp_name VARCHAR(50) NOT NULL,
     dept_key INT,
     position VARCHAR(50),
@@ -19,12 +19,12 @@ CREATE TABLE Employee (
 
 -- 3. 사원 휴가 테이블
 CREATE TABLE Employee_Leave (
-    leave_code INT PRIMARY KEY,
+    leave_code INT PRIMARY KEY auto_increment,
     emp_code INT,
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
     leave_reason VARCHAR(255),
-    FOREIGN KEY (emp_code) REFERENCES Employee(emp_code)
+    FOREIGN KEY (emp_code) REFERENCES Employee(emp_code) on delete cascade
 );
 
 INSERT INTO Department VALUES (1, '개발팀');
@@ -38,3 +38,5 @@ INSERT INTO Employee VALUES (103, '유재석', 1, '대리');
 
 INSERT INTO Employee_Leave VALUES (200, 100, '2025-08-04', '2025-08-04', '병원 진료');
 INSERT INTO Employee_Leave VALUES (201, 101, '2025-07-21', '2025-07-25', '여름 휴가');
+
+select e.leave_code, n.emp_name, e.start_date,e.end_date,e.leave_reason from Employee_Leave e inner join Employee n on e.emp_code=n.emp_code;

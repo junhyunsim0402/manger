@@ -34,22 +34,22 @@
                         <tr>
                             <td>개발팀</td>
                             <td>
-                                <button class="updateBtn" onclick="">수정</button>
-                                <button class="deleteBtn" onclick="">삭제</button>
+                                <button class="updateBtn" onclick="deptUpdate()">수정</button>
+                                <button class="deleteBtn" onclick="deptDelete()">삭제</button>
                             </td>
                         </tr>
                         <tr>
                             <td>디자인팀</td>
                             <td>
-                                <button class="updateBtn" onclick="">수정</button>
-                                <button class="deleteBtn" onclick="">삭제</button>
+                                <button class="updateBtn" onclick="deptUpdate()">수정</button>
+                                <button class="deleteBtn" onclick="deptDelete()">삭제</button>
                             </td>
                         </tr>
                         <tr>
                             <td>기획팀</td>
                             <td>
-                                <button class="updateBtn" onclick="">수정</button>
-                                <button class="deleteBtn" onclick="">삭제</button>
+                                <button class="updateBtn" onclick="deptUpdate()">수정</button>
+                                <button class="deleteBtn" onclick="deptDelete()">삭제</button>
                             </td>
                         </tr>
                     </tbody>
@@ -79,12 +79,8 @@
                                     <option value="3">기획팀</option>
                                 </select>
                             </div>
-                            <div class="image-right">
-                                사진<br />
-                                <input type="file" class="image" />
-                            </div>
                         </div>
-                        <button class="update-button" onclick="memberAdd()">등록</button>
+                        <button class="update-button" onclick="onWrite()">등록</button>
                     </div>
                     <div class="bottom-content">
                         <h3>사원 전체 목록</h3>

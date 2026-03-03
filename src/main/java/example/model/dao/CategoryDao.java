@@ -1,9 +1,15 @@
 package example.model.dao;
 
+import example.model.dto.CategoryDto;
+import example.model.dto.ManagerDto;
 import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class CategoryDao {
@@ -21,5 +27,59 @@ public class CategoryDao {
         }catch ( Exception e ){
             System.out.println("[시스템경고] 데이터베이스 연동 실패 : 관리자에게 문의");
         }
+    }
+    // [1] 부서 전체 목록 조회
+    public List<CategoryDto> findAll(){
+        List<CategoryDto> list=new ArrayList<>();
+        try{
+            String sql="select * from Department";
+            PreparedStatement ps=conn.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()){
+                CategoryDto categoryDto=new CategoryDto(
+                        rs.getInt("dept_key"),rs.getString("dept_name")
+                );
+                list.add(categoryDto);
+            }
+        }catch (Exception e){
+            System.out.println("출력오류"+e);
+        }
+        return list;
+    }
+    // [2] 부서 등록
+    public boolean add(CategoryDto categoryDto){
+        try{
+            String sql="insert into Department values (?,?)";
+            PreparedStatement ps=conn.prepareStatement(sql);
+            ps.setInt(1,categoryDto.getDept_key());
+            ps.setString(2,categoryDto.getDept_name());
+            int count=ps.executeUpdate();
+            if(count==1)return true;
+        }catch (Exception e){ System.out.println("등록오류"+e); }
+        return false;                                                       // 아니면 실패
+    }
+
+    public boolean update(CategoryDto categoryDto) {
+        try {
+            String sql = "UPDATE Department SET dept_name=? WHERE dept_key = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, categoryDto.getDept_name());
+            ps.setInt(2, categoryDto.getDept_key());
+            return ps.executeUpdate() == 1;
+        } catch (Exception e) {
+            System.out.println("수정 오류: " + e);
+        }
+        return false;
+    }
+
+    public boolean delete(int dept_key){
+        try {
+            String sql = "delete from Department where dept_key=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1,dept_key);
+            int count=ps.executeUpdate();
+            if(count==1)return true;
+        }catch (Exception e){ System.out.println("삭제 오류"+ e); }
+        return false;
     }
 }
