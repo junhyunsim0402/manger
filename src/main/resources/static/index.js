@@ -1,3 +1,33 @@
+// 부서 관리 페이지 시작
+const deptPrint = async () => {
+    const tbody=document.querySelector('.tbody-left');
+    let html="";
+    const response=await axios.get("/category");
+    const data=response.data;
+    for(let i=0;i<data.length;i++){
+        const categorys=data[i];
+        html+=`<tr>
+        <td>${categorys.dept_name}</td>
+        <td>
+        <button onclick="deptUpdate(${categorys.dept_key})">수정</button>
+        <button onclick="deptDelete(${categorys.dept_key})">삭제</button>
+        </td>
+        </tr>`;
+    }
+    tbody.innerHTML=html;
+}
+deptPrint();
+const deptAdd = async () => {
+
+}
+const deptUpdate = async () => {
+
+}
+const deptDelete = async () => {
+
+}
+// 부서 관리 페이지 끝
+// 사원 등록 페이지 시작
 const onFindAll = async () => {
     const tbody=document.querySelector("#table tbody");
     let html="";
@@ -67,3 +97,5 @@ const onUpdate = async ( emp_code ) => {
         alert("수정 실패 : 관리자에게 문의")
     }
 }
+// 사원 등록 끝 //
+//==================================================//
